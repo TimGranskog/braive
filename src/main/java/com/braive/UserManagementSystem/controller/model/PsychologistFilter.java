@@ -1,4 +1,10 @@
 package com.braive.UserManagementSystem.controller.model;
 
-public class PsychologistFilter {
+public record PsychologistFilter(
+        String id,
+        String name,
+        String nationalIdentificationNumber,
+        String dateOfBirth,
+        String organization
+) {
 }
