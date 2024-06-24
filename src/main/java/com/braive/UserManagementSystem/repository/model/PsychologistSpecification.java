@@ -7,9 +7,11 @@ import jakarta.persistence.criteria.Predicate;
 import jakarta.persistence.criteria.Root;
 import org.springframework.data.jpa.domain.Specification;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 public class PsychologistSpecification implements Specification<Psychologist> {
 
@@ -24,7 +26,7 @@ public class PsychologistSpecification implements Specification<Psychologist> {
         final List<Predicate> predicates = new ArrayList<>();
         Optional.ofNullable(
                 filter.id()).ifPresent(
-                        id -> predicates.add(criteriaBuilder.equal(root.get(Psychologist_.ID), id))
+                        id -> predicates.add(criteriaBuilder.equal(root.get(Psychologist_.ID), UUID.fromString(id)))
         );
         Optional.ofNullable(
                 filter.name()).ifPresent(
@@ -38,7 +40,7 @@ public class PsychologistSpecification implements Specification<Psychologist> {
         );
         Optional.ofNullable(
                 filter.dateOfBirth()).ifPresent(
-                        dateOfBirth -> predicates.add(criteriaBuilder.equal(root.get(Psychologist_.DATE_OF_BIRTH), dateOfBirth))
+                        dateOfBirth -> predicates.add(criteriaBuilder.equal(root.get(Psychologist_.DATE_OF_BIRTH), Date.valueOf(dateOfBirth)))
         );
         Optional.ofNullable(
                 filter.organization()).ifPresent(

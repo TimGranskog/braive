@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController("/v1/psychologists")
+@RestController
+@RequestMapping("/v1/psychologists")
 @RequiredArgsConstructor
 public class PsychologistController {
 
@@ -22,7 +23,7 @@ public class PsychologistController {
     }
 
     @GetMapping
-    public ResponseEntity<List<PsychologistResponse>> getPsychologistsByFilter(@RequestParam final PsychologistFilter filter) {
+    public ResponseEntity<List<PsychologistResponse>> getPsychologistsByFilter(final PsychologistFilter filter) {
         return ResponseEntity.ok(psychologistService.getByFilter(filter));
     }
 }
