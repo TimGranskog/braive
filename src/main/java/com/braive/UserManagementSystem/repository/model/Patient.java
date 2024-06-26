@@ -7,7 +7,7 @@ import java.sql.Date;
 import java.util.UUID;
 
 @Data
-@Entity(name = "patient")
+@Entity(name = "patients")
 public class Patient {
 
     @Id
@@ -22,7 +22,7 @@ public class Patient {
 
     private String organization;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "psychologist_id")
     private Psychologist psychologist;
 }

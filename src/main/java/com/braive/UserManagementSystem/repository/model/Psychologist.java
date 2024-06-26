@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Data
-@Entity(name = "psychologist")
+@Entity(name = "psychologists")
 public class Psychologist {
 
     @Id
@@ -24,7 +24,7 @@ public class Psychologist {
 
     private String organization;
 
-    @OneToMany(mappedBy = "psychologist", fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "psychologist", cascade = CascadeType.ALL)
     private List<Patient> patients = new ArrayList<>();
 
 }

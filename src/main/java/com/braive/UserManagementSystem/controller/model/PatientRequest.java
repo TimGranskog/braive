@@ -1,7 +1,7 @@
 package com.braive.UserManagementSystem.controller.model;
 
 
-public record CreatePatientRequest(
+public record PatientRequest(
         String name,
         String nationalIdentificationNumber,
         String dateOfBirth,

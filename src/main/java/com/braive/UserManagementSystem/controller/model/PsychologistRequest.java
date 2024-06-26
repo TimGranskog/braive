@@ -1,8 +1,6 @@
 package com.braive.UserManagementSystem.controller.model;
 
-import java.sql.Date;
-
-public record CreatePsychologistRequest(
+public record PsychologistRequest(
         String name,
         String nationalIdentificationNumber,
         String dateOfBirth,
